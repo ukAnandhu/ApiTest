@@ -29,12 +29,14 @@ function Email() {
             setEmailError('');
          }else {
              setEmailError('enter a valid email !');
+             setEmail("");
+             setPasswd("");
              return
          }
         const config = {
             headers: {
             'Accept': 'application/json',
-             'X-App-Type': 'super_admin'
+            'X-App-Type': 'super_admin'
           }
         };
        
@@ -46,13 +48,12 @@ function Email() {
                 config
                 )
             .then((res) => {
-                 const status = res.status;
-                 console.log(status, 'kkkkk');
+                
                  if (res.status === 200) {
-                    setLogin("login success");
+                    setLogin("login success"); 
                 }
-                 const data = res.data;
-                 console.log(data, 'wallboyz')
+                //  const data = res.data;
+                
                }) 
             .catch(error => {
                 setError("login failed !")
